@@ -1,6 +1,6 @@
 # Field Sales AI Assistant FMCG
 
-Modern B2B web/PWA prototype for FMCG field sales reps and sales managers.
+Modern internal web/PWA prototype for Dr. Oetker FMCG field sales reps and sales managers.
 
 The product is intentionally focused on the operational execution layer:
 
@@ -17,6 +17,7 @@ The product is intentionally focused on the operational execution layer:
 - Tailwind CSS
 - Mock service layer and mock data
 - Vercel-ready project structure
+- Corporate internal-tool visual system inspired by Dr. Oetker blue, light surfaces, and restrained red accents
 
 ## Run Locally
 
@@ -48,7 +49,13 @@ Target Vercel project:
 https://vercel.com/ruslan-eremian-s-projects/field_sales_ai_assistant_fmcg
 ```
 
-If the Vercel project is connected to the GitHub repository, pushing to the deployment branch should trigger a Vercel deployment automatically.
+Production URL:
+
+```text
+https://fieldsalesaiassistantfmcg.vercel.app/
+```
+
+If the Vercel project is connected to the GitHub repository, pushing to `main` should trigger a Vercel deployment automatically.
 
 If it is not connected yet:
 
@@ -58,6 +65,29 @@ If it is not connected yet:
 4. Set build command to `npm run build`.
 5. Set install command to `npm install`.
 6. Deploy from the selected production branch.
+
+Recommended Vercel settings:
+
+- Framework Preset: Next.js
+- Root Directory: repo root
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output Directory: leave default for Next.js
+
+## Vercel 404 Fix
+
+The app structure was valid, but the production root URL returned `404: NOT_FOUND`.
+
+This update makes the root route explicit by rendering the login/workspace selector directly from `app/page.tsx` instead of relying on a redirect to `/login`. This gives Vercel a concrete root page to serve at `/`.
+
+The project is linked locally to:
+
+```text
+projectName: field_sales_ai_assistant_fmcg
+projectId: prj_eDzuOUif6E4JAsVKUCeelSweonnd
+```
+
+The app is at repository root, so the Vercel root directory should remain the repo root.
 
 ## Current MVP Architecture
 
@@ -86,7 +116,7 @@ There is no real authentication, database, Databricks connection, Power BI conne
 
 ## UI Direction
 
-The interface uses a modern enterprise SaaS style with:
+The interface uses a polished internal enterprise style with:
 
 - desktop sidebar navigation
 - mobile bottom navigation
@@ -94,6 +124,7 @@ The interface uses a modern enterprise SaaS style with:
 - polished Power BI and map placeholders
 - priority and status badges
 - touch-friendly iPad/iPhone layouts
+- Dr. Oetker-inspired corporate blue, white, light grey-blue surfaces, and restrained red accents
 
 ## Service Layer
 

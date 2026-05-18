@@ -13,7 +13,7 @@ export function VisitChecklist({ items }: { items: ChecklistItem[] }) {
   );
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
+    <section className="rounded-2xl border border-border bg-white p-5 shadow-sm">
       <div className="flex items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-ink">Visit checklist</h2>
@@ -28,7 +28,7 @@ export function VisitChecklist({ items }: { items: ChecklistItem[] }) {
 
       <div className="mt-4 grid gap-2">
         {checklist.map((item) => (
-          <label key={item.id} className="flex touch-target items-center gap-3 rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-700 ring-1 ring-slate-200/60">
+          <label key={item.id} className="flex touch-target items-center gap-3 rounded-xl bg-muted-surface px-3 py-2 text-sm text-slate-700 ring-1 ring-border">
             <input
               type="checkbox"
               checked={item.completed}
@@ -37,7 +37,7 @@ export function VisitChecklist({ items }: { items: ChecklistItem[] }) {
                   current.map((entry) => (entry.id === item.id ? { ...entry, completed: !entry.completed } : entry))
                 )
               }
-              className="h-5 w-5 rounded border-slate-300 accent-field"
+              className="h-5 w-5 rounded border-slate-300 accent-brand-blue"
             />
             {item.label}
           </label>
@@ -50,7 +50,7 @@ export function VisitChecklist({ items }: { items: ChecklistItem[] }) {
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
           rows={4}
-          className="mt-2 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none ring-field/20 focus:ring-4"
+          className="mt-2 w-full rounded-xl border border-border bg-white p-3 text-sm outline-none ring-brand-blue/20 focus:ring-4"
           placeholder="Add shelf, promo, stock, competitor, or order notes."
         />
       </label>
@@ -61,7 +61,7 @@ export function VisitChecklist({ items }: { items: ChecklistItem[] }) {
           setChecklist((current) => current.map((item) => ({ ...item, completed: true })));
           setCompleted(true);
         }}
-        className="touch-target mt-4 w-full rounded-xl bg-field px-4 text-sm font-semibold text-white shadow-sm"
+        className="touch-target mt-4 w-full rounded-xl bg-brand-blue px-4 text-sm font-semibold text-white shadow-sm"
       >
         Mark visit as completed
       </button>

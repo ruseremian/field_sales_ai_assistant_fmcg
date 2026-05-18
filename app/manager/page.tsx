@@ -46,7 +46,7 @@ export default async function ManagerPage() {
               ))}
             </ul>
           </div>
-          <Link href="/assistant?role=manager" className="touch-target inline-flex items-center justify-center gap-2 rounded-xl bg-signal px-4 font-semibold text-white shadow-sm">
+          <Link href="/assistant?role=manager" className="touch-target inline-flex items-center justify-center gap-2 rounded-xl bg-brand-blue px-4 font-semibold text-white shadow-sm">
             <Bot size={18} />
             Ask assistant
           </Link>

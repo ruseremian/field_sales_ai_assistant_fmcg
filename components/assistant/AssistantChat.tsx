@@ -38,20 +38,20 @@ export function AssistantChat({
 
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
-      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft">
-        <div className="border-b border-slate-200 bg-slate-50 px-5 py-4">
+      <section className="overflow-hidden rounded-3xl border border-border bg-white shadow-soft">
+        <div className="border-b border-border bg-muted-surface px-5 py-4">
           <p className="text-sm font-semibold text-ink">Field Sales Copilot</p>
-          <p className="mt-1 text-xs text-slate-500">Mock grounded answers from curated sales, route, and visit data.</p>
+          <p className="mt-1 text-xs text-muted-foreground">Mock grounded answers from curated sales, route, and visit data.</p>
         </div>
-        <div className="max-h-[590px] min-h-[460px] overflow-y-auto bg-[radial-gradient(circle_at_top_left,rgba(15,118,110,0.08),transparent_28rem)] p-4">
+        <div className="max-h-[590px] min-h-[460px] overflow-y-auto bg-[radial-gradient(circle_at_top_left,rgba(0,75,147,0.08),transparent_28rem)] p-4">
           <div className="grid gap-3">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`max-w-[86%] rounded-lg px-4 py-3 text-sm ${
                   message.role === "user"
-                    ? "ml-auto bg-field text-white shadow-sm"
-                    : "mr-auto border border-slate-200 bg-white text-slate-800 shadow-sm"
+                    ? "ml-auto bg-brand-blue text-white shadow-sm"
+                    : "mr-auto border border-border bg-blue-soft text-slate-800 shadow-sm"
                 }`}
               >
                 {message.content}
@@ -79,14 +79,14 @@ export function AssistantChat({
         </form>
       </section>
 
-      <aside className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
+      <aside className="rounded-3xl border border-border bg-white p-5 shadow-sm">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Suggested questions</h2>
         <div className="mt-3 grid gap-2">
           {suggestedQuestions.map((question) => (
             <button
               key={question}
               onClick={() => submit(question)}
-              className="touch-target rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-sm font-medium leading-5 text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+              className="touch-target rounded-xl border border-border bg-white px-3 py-2 text-left text-sm font-medium leading-5 text-slate-700 shadow-sm transition hover:border-brand-blue hover:bg-blue-soft"
             >
               {question}
             </button>

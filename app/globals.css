@@ -4,8 +4,16 @@
 
 :root {
   color-scheme: light;
-  --background: #f6f7fb;
-  --foreground: #172033;
+  --background: #f5f7fb;
+  --foreground: #162033;
+  --brand-blue: #004b93;
+  --brand-blue-dark: #003a72;
+  --brand-blue-light: #e8f1fb;
+  --brand-red: #c8182d;
+  --surface: #ffffff;
+  --muted-surface: #f1f5f9;
+  --border: #dbe3ee;
+  --muted-foreground: #5f6f85;
 }
 
 * {
@@ -21,8 +29,8 @@ body {
   min-height: 100%;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.11), transparent 32rem),
-    linear-gradient(180deg, #fbfcff 0%, var(--background) 38rem);
+    radial-gradient(circle at top left, rgba(0, 75, 147, 0.08), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 34rem);
   color: var(--foreground);
   font-family: Inter, Arial, Helvetica, sans-serif;
   text-rendering: geometricPrecision;

@@ -29,7 +29,7 @@ export default async function RoutePage() {
         <MetricCard label="Total visits" value={route.stops.length.toString()} />
         <MetricCard label="Total distance" value={`${route.totalDistanceKm} km`} accent="signal" />
         <MetricCard label="Total duration" value={formatMinutes(route.totalDurationMinutes)} accent="warning" />
-        <MetricCard label="Estimated opportunity" value={formatCurrency(route.totalEstimatedOpportunity)} />
+        <MetricCard label="Estimated opportunity" value={formatCurrency(route.totalEstimatedOpportunity)} accent="field" />
       </div>
 
       <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1fr)_420px]">

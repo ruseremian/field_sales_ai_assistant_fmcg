@@ -27,7 +27,7 @@ export default async function StoreDetailPage({ params }: { params: Promise<{ st
       title={store.name}
       subtitle="Store detail combines recommendation context, mock Databricks performance signals, and local visit execution state."
     >
-      <SectionCard className="mb-5 bg-gradient-to-br from-white to-slate-50">
+      <SectionCard className="mb-5 bg-blue-soft">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <div className="mb-3 flex flex-wrap gap-2">
@@ -37,7 +37,7 @@ export default async function StoreDetailPage({ params }: { params: Promise<{ st
             <p className="text-sm leading-6 text-slate-600">{store.address}</p>
             <p className="mt-1 text-sm text-slate-500">{store.banner} · {store.region} · Assigned to {user.name}</p>
           </div>
-          <div className="rounded-2xl bg-slate-950 px-5 py-4 text-white">
+          <div className="rounded-2xl bg-brand-blue px-5 py-4 text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">Priority score</p>
             <p className="mt-1 text-3xl font-semibold">{store.priorityScore}</p>
           </div>
@@ -65,7 +65,7 @@ export default async function StoreDetailPage({ params }: { params: Promise<{ st
           <SectionCard title="Recommendation reasons">
             <ul className="mt-3 grid gap-2 text-sm text-slate-700">
               {store.recommendationReasons.map((reason) => (
-                <li key={reason} className="rounded-xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200/60">{reason}</li>
+              <li key={reason} className="rounded-xl bg-muted-surface px-3 py-2 ring-1 ring-border">{reason}</li>
               ))}
             </ul>
           </SectionCard>
@@ -87,9 +87,9 @@ export default async function StoreDetailPage({ params }: { params: Promise<{ st
 
           <SectionCard title="Recommended actions">
             <ul className="mt-3 grid gap-2 text-sm text-slate-700">
-              <li className="rounded-xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200/60">Check promotion execution and shelf presence for priority SKUs.</li>
-              <li className="rounded-xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200/60">Review stock gaps and propose order recovery for underperforming categories.</li>
-              <li className="rounded-xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200/60">Capture competitor activity and any store manager objections in visit notes.</li>
+              <li className="rounded-xl bg-muted-surface px-3 py-2 ring-1 ring-border">Check promotion execution and shelf presence for priority SKUs.</li>
+              <li className="rounded-xl bg-muted-surface px-3 py-2 ring-1 ring-border">Review stock gaps and propose order recovery for underperforming categories.</li>
+              <li className="rounded-xl bg-muted-surface px-3 py-2 ring-1 ring-border">Capture competitor activity and any store manager objections in visit notes.</li>
             </ul>
           </SectionCard>
         </div>

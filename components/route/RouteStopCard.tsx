@@ -24,10 +24,10 @@ export function RouteStopCard({
   return (
     <Link
       href={`/rep/stores/${store.id}`}
-      className="group block rounded-2xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-200/60 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md"
+      className="group block rounded-2xl border border-border bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-blue hover:shadow-md"
     >
       <div className="flex items-start gap-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-ink text-sm font-semibold text-white">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-blue text-sm font-semibold text-white">
           {stopOrder}
         </span>
         <div className="min-w-0 flex-1">
@@ -40,12 +40,12 @@ export function RouteStopCard({
             {store.address}
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-600">
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
+            <span className="inline-flex items-center gap-1 rounded-full bg-blue-soft px-2.5 py-1 text-brand-blue">
               <Clock3 size={13} />
               Arrive {estimatedArrival}
             </span>
-            <span className="rounded-full bg-slate-100 px-2.5 py-1">Visit {formatMinutes(estimatedVisitDurationMinutes)}</span>
-            <span className="rounded-full bg-slate-100 px-2.5 py-1">Drive {formatMinutes(travelTimeFromPreviousMinutes)}</span>
+            <span className="rounded-full bg-muted-surface px-2.5 py-1">Visit {formatMinutes(estimatedVisitDurationMinutes)}</span>
+            <span className="rounded-full bg-muted-surface px-2.5 py-1">Drive {formatMinutes(travelTimeFromPreviousMinutes)}</span>
           </div>
         </div>
       </div>

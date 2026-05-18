@@ -20,7 +20,7 @@ export default async function AssistantPage({
     <AppShell
       role={role}
       title="AI assistant"
-      subtitle="This mock assistant returns grounded sample answers. Future versions should use OpenAI with approved Databricks marts and role-based access."
+      subtitle="Internal field sales copilot with grounded mock answers. Future versions should use OpenAI with approved Databricks marts and role-based access."
     >
       <AssistantChat role={role} answerQuestion={answerQuestion} />
     </AppShell>

@@ -9,15 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#111827",
-        field: "#0f766e",
-        signal: "#2563eb",
-        warning: "#b45309",
-        surface: "#f6f7fb"
+        ink: "var(--foreground)",
+        field: "var(--brand-blue)",
+        signal: "#2c6fb7",
+        warning: "#b7791f",
+        surface: "var(--background)",
+        app: "var(--background)",
+        foreground: "var(--foreground)",
+        "brand-blue": "var(--brand-blue)",
+        "brand-blue-dark": "var(--brand-blue-dark)",
+        "brand-red": "var(--brand-red)",
+        "blue-soft": "var(--brand-blue-light)",
+        "muted-surface": "var(--muted-surface)",
+        border: "var(--border)",
+        "muted-foreground": "var(--muted-foreground)"
       },
       boxShadow: {
-        soft: "0 16px 45px rgba(15, 23, 42, 0.10)",
-        glow: "0 20px 60px rgba(15, 118, 110, 0.18)"
+        soft: "0 14px 38px rgba(22, 32, 51, 0.09)",
+        glow: "0 18px 45px rgba(0, 75, 147, 0.16)",
+        corporate: "0 22px 70px rgba(22, 32, 51, 0.12)"
       }
     }
   },
