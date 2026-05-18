@@ -91,6 +91,10 @@ function DirectionsCalculator({
 function GoogleRouteMap({ stops, routeResult }: { stops: RouteMapStop[]; routeResult?: NormalizedRouteResult }) {
   const orderedStops = routeResult?.orderedStops ?? stops;
   const center = useMemo(() => routeCenter(orderedStops), [orderedStops]);
+  const fallbackPath = useMemo(
+    () => orderedStops.map((stop) => ({ lat: stop.store.latitude, lng: stop.store.longitude })),
+    [orderedStops]
+  );
 
   return (
     <div className="relative min-h-[420px] overflow-hidden rounded-3xl border border-border bg-blue-soft shadow-sm">
@@ -107,7 +111,9 @@ function GoogleRouteMap({ stops, routeResult }: { stops: RouteMapStop[]; routeRe
         <FitBounds stops={orderedStops} />
         {routeResult?.polyline ? (
           <Polyline encodedPath={routeResult.polyline} strokeColor="#004b93" strokeOpacity={0.85} strokeWeight={5} />
-        ) : null}
+        ) : (
+          <Polyline path={fallbackPath} strokeColor="#004b93" strokeOpacity={0.65} strokeWeight={4} />
+        )}
         {orderedStops.map((stop, index) => (
           <Marker
             key={stop.id}

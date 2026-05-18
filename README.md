@@ -101,6 +101,8 @@ https://fieldsalesaiassistantfmcg.vercel.app/*
 
 If the key is missing or Google route calculation fails, the app falls back to the internal mock route map and mock route summary.
 
+If the Google map loads but route calculation shows `REQUEST_DENIED`, check that the same API key is allowed to use the Directions API and that the HTTP referrer restriction includes the production domain.
+
 ## Vercel 404 Fix
 
 The app structure was valid, but the production root URL returned `404: NOT_FOUND`.
