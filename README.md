@@ -76,6 +76,31 @@ Recommended Vercel settings:
 
 The repository also includes `vercel.json` with explicit Next.js framework, install, and build settings so Git-triggered deployments do not fall back to the generic `Other` preset.
 
+## Google Maps Setup
+
+The route page can use Google Maps for real driving route visualization from the existing mock store coordinates.
+
+1. Create a Google Maps API key in Google Cloud.
+2. Enable the Maps JavaScript API.
+3. Enable the Directions API for the current client-side DirectionsService implementation. If route calculation later moves server-side, enable the Routes API as needed.
+4. Add the key locally in `.env.local`:
+
+```bash
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-key-here
+NEXT_PUBLIC_MAP_PROVIDER=google
+```
+
+5. Add `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` in Vercel environment variables.
+6. Redeploy after changing Vercel environment variables.
+7. Restrict the API key by HTTP referrer:
+
+```text
+http://localhost:3000/*
+https://fieldsalesaiassistantfmcg.vercel.app/*
+```
+
+If the key is missing or Google route calculation fails, the app falls back to the internal mock route map and mock route summary.
+
 ## Vercel 404 Fix
 
 The app structure was valid, but the production root URL returned `404: NOT_FOUND`.

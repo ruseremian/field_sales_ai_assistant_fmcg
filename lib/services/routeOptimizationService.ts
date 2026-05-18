@@ -1,5 +1,6 @@
 import { routes, stores } from "@/lib/mock-data/fieldData";
 import type { Route } from "@/lib/types/domain";
+import type { RouteProvider } from "@/lib/services/googleMapsRouteService";
 
 /*
 Route ownership split:
@@ -17,6 +18,19 @@ TODO production route optimization:
 - business-priority route optimization
 */
 
+export function getDefaultRouteProvider(): RouteProvider {
+  const configuredProvider = process.env.NEXT_PUBLIC_MAP_PROVIDER;
+  const hasGoogleKey = Boolean(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
+
+  if (configuredProvider === "mock") return "mock";
+  if (configuredProvider === "google" && hasGoogleKey) return "google";
+  return hasGoogleKey ? "google" : "mock";
+}
+
+export function hasGoogleMapsApiKey() {
+  return Boolean(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
+}
+
 export async function getTodayRouteForRep(repId: string): Promise<Route | undefined> {
   // TODO: Replace mock route with Mapbox Optimization API, Google Maps API, Google OR-Tools,
   // and business-priority route optimization rules.
@@ -31,6 +45,6 @@ export async function getRouteStopsWithStores(repId: string) {
     stops: route.stops.map((stop) => ({
       ...stop,
       store: stores.find((store) => store.id === stop.storeId)
-    }))
+    })).filter((stop) => Boolean(stop.store))
   };
 }
