@@ -1,0 +1,10 @@
+{
+  "name": "Smart Field Sales Assistant",
+  "short_name": "Field Sales",
+  "description": "Operational route planning and store execution for FMCG sales teams.",
+  "start_url": "/login",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#0f766e",
+  "icons": []
+}
