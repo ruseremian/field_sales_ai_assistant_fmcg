@@ -74,11 +74,16 @@ Recommended Vercel settings:
 - Build Command: `npm run build`
 - Output Directory: leave default for Next.js
 
+The repository also includes `vercel.json` with explicit Next.js framework, install, and build settings so Git-triggered deployments do not fall back to the generic `Other` preset.
+
 ## Vercel 404 Fix
 
 The app structure was valid, but the production root URL returned `404: NOT_FOUND`.
 
-This update makes the root route explicit by rendering the login/workspace selector directly from `app/page.tsx` instead of relying on a redirect to `/login`. This gives Vercel a concrete root page to serve at `/`.
+Two safeguards were added:
+
+- `app/page.tsx` now renders the login/workspace selector directly instead of relying on a redirect to `/login`.
+- `vercel.json` explicitly declares the project as Next.js and uses `npm install` plus `npm run build`.
 
 The project is linked locally to:
 
