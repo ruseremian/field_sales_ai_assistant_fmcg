@@ -24,16 +24,17 @@ export function RouteWorkspace({
   onRouteCalculated
 }: RouteWorkspaceProps) {
   return (
-    <section className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,2fr)_minmax(340px,0.95fr)]">
-      <RouteMap
-        stops={stops}
-        provider={provider}
-        optimizeWaypoints={optimizeWaypoints}
-        selectedStopId={selectedStopId}
-        onSelectStop={onSelectStop}
-        onRouteCalculated={onRouteCalculated}
-        className="min-h-[420px] lg:min-h-[650px]"
-      />
+    <section className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_420px]">
+      <div className="min-w-0 pointer-events-auto">
+        <RouteMap
+          stops={stops}
+          provider={provider}
+          optimizeWaypoints={optimizeWaypoints}
+          selectedStopId={selectedStopId}
+          onSelectStop={onSelectStop}
+          onRouteCalculated={onRouteCalculated}
+        />
+      </div>
       <RouteStopOrderPanel
         stops={stops}
         selectedStopId={selectedStopId}

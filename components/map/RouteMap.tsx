@@ -150,7 +150,8 @@ function GoogleRouteMap({
 
   return (
     <div
-      className={`relative isolate h-[420px] min-h-[420px] overflow-hidden rounded-3xl border border-border bg-blue-soft shadow-sm pointer-events-auto lg:h-[650px] lg:min-h-[650px] ${className}`}
+      className={`relative isolate h-[420px] min-h-[420px] w-full overflow-hidden rounded-3xl border border-border bg-blue-soft shadow-sm lg:h-[650px] lg:min-h-[650px] ${className} pointer-events-auto`}
+      style={{ touchAction: "none" }}
     >
       <Map
         defaultCenter={center}
@@ -166,14 +167,32 @@ function GoogleRouteMap({
         fullscreenControl={true}
         zoomControl={true}
         zoomControlOptions={{ position: ControlPosition.RIGHT_TOP }}
+        draggableCursor="grab"
+        draggingCursor="grabbing"
         className="h-full w-full pointer-events-auto"
       >
         <FitBounds stops={orderedStops} />
         <PanToSelectedStop stop={selectedStop} />
         {routeResult?.polyline ? (
-          <Polyline encodedPath={routeResult.polyline} strokeColor="#004b93" strokeOpacity={0.85} strokeWeight={5} />
+          <Polyline
+            encodedPath={routeResult.polyline}
+            strokeColor="#004b93"
+            strokeOpacity={0.85}
+            strokeWeight={5}
+            clickable={false}
+            draggable={false}
+            editable={false}
+          />
         ) : (
-          <Polyline path={fallbackPath} strokeColor="#004b93" strokeOpacity={0.65} strokeWeight={4} />
+          <Polyline
+            path={fallbackPath}
+            strokeColor="#004b93"
+            strokeOpacity={0.65}
+            strokeWeight={4}
+            clickable={false}
+            draggable={false}
+            editable={false}
+          />
         )}
         {orderedStops.map((stop, index) => (
           <Marker
