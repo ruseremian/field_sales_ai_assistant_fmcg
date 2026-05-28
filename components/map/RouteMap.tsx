@@ -2,7 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { APIProvider, InfoWindow, Map, Marker, Polyline, useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
+import {
+  APIProvider,
+  ControlPosition,
+  InfoWindow,
+  Map,
+  Marker,
+  Polyline,
+  useMap,
+  useMapsLibrary
+} from "@vis.gl/react-google-maps";
 import { MapPlaceholder } from "@/components/map/MapPlaceholder";
 import {
   buildMockRouteResult,
@@ -156,6 +165,7 @@ function GoogleRouteMap({
         streetViewControl={false}
         fullscreenControl={true}
         zoomControl={true}
+        zoomControlOptions={{ position: ControlPosition.RIGHT_TOP }}
         className="h-full w-full pointer-events-auto"
       >
         <FitBounds stops={orderedStops} />
