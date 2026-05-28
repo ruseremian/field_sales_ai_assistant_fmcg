@@ -140,17 +140,23 @@ function GoogleRouteMap({
         };
 
   return (
-    <div className={`relative overflow-hidden rounded-3xl border border-border bg-blue-soft shadow-sm ${className}`}>
+    <div
+      className={`relative isolate h-[420px] min-h-[420px] overflow-hidden rounded-3xl border border-border bg-blue-soft shadow-sm pointer-events-auto lg:h-[650px] lg:min-h-[650px] ${className}`}
+    >
       <Map
         defaultCenter={center}
         defaultZoom={11}
         gestureHandling="greedy"
+        scrollwheel={true}
+        draggable={true}
+        keyboardShortcuts={true}
         disableDefaultUI={false}
+        disableDoubleClickZoom={false}
         mapTypeControl={false}
         streetViewControl={false}
-        fullscreenControl
-        zoomControl
-        className="h-full min-h-[420px] w-full lg:min-h-[650px]"
+        fullscreenControl={true}
+        zoomControl={true}
+        className="h-full w-full pointer-events-auto"
       >
         <FitBounds stops={orderedStops} />
         <PanToSelectedStop stop={selectedStop} />

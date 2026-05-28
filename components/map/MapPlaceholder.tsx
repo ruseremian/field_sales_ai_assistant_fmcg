@@ -22,8 +22,8 @@ export function MapPlaceholder({
 
   return (
     <section className={`relative flex min-h-[420px] overflow-hidden rounded-3xl border border-border bg-blue-soft p-6 text-center shadow-sm lg:min-h-[650px] ${className}`}>
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,75,147,0.09)_1px,transparent_1px),linear-gradient(90deg,rgba(0,75,147,0.09)_1px,transparent_1px)] bg-[size:42px_42px]" />
-      <div className="absolute left-[19%] top-[30%] h-[2px] w-[52%] rotate-6 bg-brand-blue/35" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(0,75,147,0.09)_1px,transparent_1px),linear-gradient(90deg,rgba(0,75,147,0.09)_1px,transparent_1px)] bg-[size:42px_42px]" />
+      <div className="pointer-events-none absolute left-[19%] top-[30%] h-[2px] w-[52%] rotate-6 bg-brand-blue/35" />
       {(stops.length ? stops : [undefined, undefined, undefined]).slice(0, 5).map((stop, index) => {
         const isSelected = stop?.id === selectedStopId;
         return (
